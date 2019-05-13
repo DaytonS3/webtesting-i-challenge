@@ -21,3 +21,16 @@ describe("succeed", () => {
     expect(newItemAbove.enhancement).toBe(20);
   });
 });
+
+describe("repair", () => {
+  it("should increase durability to 100", () => {
+    const item = {
+      name: "item",
+      durability: 50,
+      enhancement: 12
+    };
+    const repairedItem = enhancer.repair(item);
+
+    expect(repairedItem.durability).toBe(100);
+  });
+});
