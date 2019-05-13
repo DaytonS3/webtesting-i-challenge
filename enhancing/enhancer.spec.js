@@ -22,6 +22,40 @@ describe("succeed", () => {
   });
 });
 
+describe("fail", () => {
+  it("should decrease the durability of the item is decreased by 5 if less than 15", () => {
+    const item = {
+      name: "item",
+      durability: 50,
+      enhancement: 12
+    };
+    const failedItemUnder15 = enhancer.fail(item);
+
+    expect(failedItemUnder15.durability).toBe(45);
+  });
+
+  it("should decrease durability by 10 if 15 or greater", () => {
+    const item = {
+      name: "item",
+      durability: 50,
+      enhancement: 16
+    };
+    const failedItemOver15 = enhancer.fail(item);
+
+    expect(failedItemOver15.durability).toBe(40);
+  });
+  it("should decrease enchantment by 1 if 16 or greater", () => {
+    const item = {
+      name: "item",
+      durability: 50,
+      enhancement: 17
+    };
+    const failedItemOver16 = enhancer.fail(item);
+
+    expect(failedItemOver16.enhancement).toBe(16);
+  });
+});
+
 describe("repair", () => {
   it("should increase durability to 100", () => {
     const item = {
