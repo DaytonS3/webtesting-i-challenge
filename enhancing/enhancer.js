@@ -15,7 +15,7 @@ function succeed(item) {
   if (item.enhancement === 20) {
     item.enhancement = 20;
   } else {
-    item.enhancement + 1;
+    item.enhancement += 1;
   }
   return { ...item };
 }
